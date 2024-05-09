@@ -1,9 +1,13 @@
 import React from 'react';
 import Slider from '../../Components/Slider/Slider';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Home</title>
+            </Helmet>
             <Slider></Slider>
 
             <div>

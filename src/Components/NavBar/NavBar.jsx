@@ -100,7 +100,8 @@ const NavBar = () => {
                             {navlinks}
                         </ul>
                     </div>
-                    <Link onClick={scrollToTop} to={'/'} className="btn btn-ghost font-bold text-lg md:text-xl lg:text-2xl ">Tourista <span className="text-primary-color"></span></Link>
+                    <Link onClick={scrollToTop} to={'/'} className="  w-[50px] h-[50px] "><img className="w-full h-full" src={'https://i.ibb.co/2sgZcDH/altPluse.png'} alt="" /></Link>
+                    <Link onClick={scrollToTop} to={'/'} className=" font-bold text-lg md:text-xl lg:text-2xl flex gap-0 ">Alt<span className="text-primary-color">Pulse</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul onClick={scrollToTop} className="menu menu-horizontal px-1 flex gap-5">

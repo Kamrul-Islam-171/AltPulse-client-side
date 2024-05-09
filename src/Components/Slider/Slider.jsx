@@ -26,13 +26,13 @@ const Slider = () => {
 
                         <div className=' absolute top-1/3 md:left-1/4 lg:left-1/4 left-10 space-y-4'>
                             <Fade direction='down' duration={1000}>
-                                <h1 className='text-5xl font-bold  text-white'>Bandarban</h1>
+                                <h1 className='text-5xl font-bold  text-white'>Discover Alternative Products</h1>
                             </Fade>
                             <Fade direction='up' duration={1000}>
-                                <p className='text-white w-[90%] md:w-4/5 lg:w-3/4 text-xl'> Bandarban's unparalleled beauty, cultural diversity, adventure opportunities, and tranquil ambiance make it a must-visit destination for travelers seeking an authentic and immersive experience in Bangladesh.</p>
+                                <p className='text-white w-[90%] md:w-4/5 lg:w-3/4 text-xl'>Our platform tries to  find eco-friendly, sustainable, and innovative alternatives to mainstream products</p>
                             </Fade>
                         </div>
-                        <img src={'https://i.ibb.co/Pty10CJ/204-36376273530-3c9a0335f5-b-copyjpg.jpg'} className=' h-full w-full object-cover mix-blend-overlay' alt="" />
+                        <img src={'https://i.ibb.co/2FCq3zY/predict-customer-acceptance.jpg'} className=' h-full w-full object-cover mix-blend-overlay' alt="" />
 
                     </div>
 
@@ -43,13 +43,13 @@ const Slider = () => {
                         <div className='space-y-4 absolute top-1/3 md:left-1/4 lg:left-1/4 left-10'>
                             {/* <h1 className='text-5xl font-bold  text-white'>Cameron Highlands</h1> */}
                             <Fade direction='down' duration={1000}>
-                                <h1 className='text-5xl font-bold  text-white'>Cameron Highlands</h1>
+                                <h1 className='text-5xl font-bold  text-white'>Explore Diverse Options</h1>
                             </Fade>
                             <Fade direction='up' duration={1000}>
-                                <p className='text-white w-[90%] md:w-4/5 lg:w-3/4 text-xl'>Cameron Highlands offers a delightful blend of natural beauty, outdoor adventures, cultural experiences, and culinary delights, making it a must-visit destination for travelers exploring Malaysia.</p>
+                                <p className='text-white w-[90%] md:w-4/5 lg:w-3/4 text-xl'>From alternative energy solutions to eco-friendly household products, our platform offers a wide range of alternatives to suit your needs</p>
                             </Fade>
                         </div>
-                        <img src={'https://i.ibb.co/pwr846d/d0aa7aae-40f9-456d-a509-84de1132325d.jpg'} className=' h-full w-full object-cover mix-blend-overlay' alt="" />
+                        <img src={'https://i.ibb.co/L6VwVhx/bigstock-Young-Unsure-Man-Is-Making-Dec-239778739.jpg'} className=' h-full w-full object-cover mix-blend-overlay' alt="" />
 
                     </div>
                 </SwiperSlide>
@@ -58,13 +58,13 @@ const Slider = () => {
 
                         <div className='space-y-4  absolute top-1/3 md:left-1/4 lg:left-1/4 left-10'>
                             <Fade direction='down' duration={1000}>
-                                <h1 className='text-5xl font-bold  text-white'>Ha Long Bay</h1>
+                                <h1 className='text-5xl font-bold  text-white'>Support Sustainability</h1>
                             </Fade>
                             <Fade direction='up' duration={1000}>
-                                <p className='text-white w-[90%] md:w-4/5 lg:w-3/4 text-xl'> Explore hidden caves, secluded beaches, and floating fishing villages aboard traditional wooden boats. Witness stunning sunsets and sunrises that paint the sky with vibrant colors, casting a magical spell over the tranquil waters.</p>
+                                <p className='text-white w-[90%] md:w-4/5 lg:w-3/4 text-xl'> Join the movement towards a more sustainable future by choosing products that minimize environmental impact and promote ethical practices</p>
                             </Fade>
                         </div>
-                        <img src={'https://i.ibb.co/JrgyPnL/visitvietnam-3.jpg'} className=' h-full w-full object-cover mix-blend-overlay' alt="" />
+                        <img src={'https://i.ibb.co/vcJ1v4H/630f6fe408196f5933542fa3-sustainable-business-ideas.png'} className=' h-full w-full object-cover mix-blend-overlay' alt="" />
 
                     </div>
                 </SwiperSlide>
