@@ -10,6 +10,8 @@ import AuthProvider from './Provider/AuthProvider.jsx';
 import { HelmetProvider } from 'react-helmet-async';
 import Register from './Pages/Register/Register.jsx';
 import { Toaster } from 'react-hot-toast';
+import MyQuery from './Pages/MyQuery/MyQuery.jsx';
+import AddQuery from './Pages/AddQuery/AddQuery.jsx';
 
 
 const router = createBrowserRouter([
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
+      },
+      {
+        path:'/my-query',
+        element:<MyQuery></MyQuery>
+      },
+      {
+        path:'/add-query',
+        element:<AddQuery></AddQuery>
       }
     ]
   },
