@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from '../../Components/Slider/Slider';
 import { Helmet } from 'react-helmet-async';
+import Bannar from '../../Components/Bannar/Bannar';
 
 const Home = () => {
     return (
@@ -11,7 +12,7 @@ const Home = () => {
             <Slider></Slider>
 
             <div>
-                <h1>Hello</h1>
+                <Bannar></Bannar>
             </div>
         </div>
 
