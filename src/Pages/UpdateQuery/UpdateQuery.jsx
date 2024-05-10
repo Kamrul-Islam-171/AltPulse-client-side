@@ -86,7 +86,7 @@ const UpdateQuery = () => {
 
         try {
             const {data} = await axios.put(`${import.meta.env.VITE_API_URL}/update-query/${id}`, query);
-            // console.log(data);
+            console.log(data);
             toast.success('Query updated Successfully')
         } catch (error) {
             console.log(error)
