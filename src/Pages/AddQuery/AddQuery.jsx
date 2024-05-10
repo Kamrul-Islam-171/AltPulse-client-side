@@ -82,9 +82,11 @@ const AddQuery = () => {
 
         try {
             const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/queries`, query);
-            console.log(data)
+            // console.log(data);
+            toast.success('Query added Successfully')
         } catch (error) {
             console.log(error)
+            toast.warning('Something Wrong!')
         }
 
         

@@ -12,6 +12,7 @@ import Register from './Pages/Register/Register.jsx';
 import { Toaster } from 'react-hot-toast';
 import MyQuery from './Pages/MyQuery/MyQuery.jsx';
 import AddQuery from './Pages/AddQuery/AddQuery.jsx';
+import UpdateQuery from './Pages/UpdateQuery/UpdateQuery.jsx';
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path:'/add-query',
         element:<AddQuery></AddQuery>
+      },
+      {
+        path:'/update/:id',
+        element:<UpdateQuery></UpdateQuery>
       }
     ]
   },
