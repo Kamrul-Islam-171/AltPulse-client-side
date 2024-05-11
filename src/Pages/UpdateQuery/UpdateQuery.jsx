@@ -82,7 +82,7 @@ const UpdateQuery = () => {
         // console.log(curTime);
 
         const query = { ProductName:ProName, ProductBrand:ProBrand, ProductImage:ProImage, QueryTItle:QTItle, BoycottingReason:BoyReason };
-        // console.log(query)
+        
 
         try {
             const {data} = await axios.put(`${import.meta.env.VITE_API_URL}/update-query/${id}`, query);
@@ -94,12 +94,7 @@ const UpdateQuery = () => {
         }
 
         
-        // console.log(query)
-
-
-
-
-        //new registration
+        
 
     }
     return (
