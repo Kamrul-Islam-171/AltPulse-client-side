@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 
@@ -11,7 +11,8 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const QueryDetailsAll = () => {
     const { id } = useParams();
     const [queryDetails, setQueryDetails] = useState({});
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     // console.log(id);
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/query/${id}`)
@@ -77,12 +78,14 @@ const QueryDetailsAll = () => {
 
         const recommendation = { RecommendationProductName, RecommendationProductImage, RecommendationTitle, RecommendationReason, queryId, QueryTItle, ProductName, RecommendationEmail, RecommendationName, RecommendationImage, recommendationCount, curTime, curDate, queryEmail : email, queryName : name, queryImage : image };
 
-        console.log(recommendation)
+        // console.log(recommendation)
 
         try {
             const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/recommendation`, recommendation);
+            await axios.patch(`${import.meta.env.VITE_API_URL}/recommendation/${_id}`)
             console.log(data);
-            toast.success('Recommendation added Successfully')
+            toast.success('Recommendation  Successful');
+            navigate('/queries');
         } catch (error) {
             console.log(error)
             toast.warning('Something Wrong!')
