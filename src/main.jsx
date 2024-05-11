@@ -14,6 +14,8 @@ import MyQuery from './Pages/MyQuery/MyQuery.jsx';
 import AddQuery from './Pages/AddQuery/AddQuery.jsx';
 import UpdateQuery from './Pages/UpdateQuery/UpdateQuery.jsx';
 import QueryDetails from './Pages/QueryDetails/QueryDetails.jsx';
+import Queries from './Pages/Queries/Queries.jsx';
+import QueryDetailsAll from './Pages/QueryDetailsAll/QueryDetailsAll.jsx';
 
 
 const router = createBrowserRouter([
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
       {
         path:'/query-details/:id',
         element:<QueryDetails></QueryDetails>
+      },
+      {
+        path:'/queries',
+        element:<Queries></Queries>
+      },
+      {
+        path:'/query-details-with-all/:id',
+        element:<QueryDetailsAll></QueryDetailsAll>
       }
     ]
   },

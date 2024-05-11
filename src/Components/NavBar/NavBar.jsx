@@ -71,7 +71,7 @@ const NavBar = () => {
         } to='/my-query'>My Queries</NavLink>
         <NavLink className={({ isActive }) =>
             isActive ? "  font-medium border-b-2 border-primary-color text-primary-color p-2" : "font-medium  p-2 rounded-lg hover:text-primary-color"
-        } to={`/allSpots`}>All Tourist Spots</NavLink>
+        } to={`/queries`}>Queries</NavLink>
         <NavLink className={({ isActive }) =>
             isActive ? "  font-medium border-b-2 border-primary-color text-primary-color p-2" : " font-medium  p-2 rounded-lg hover:text-primary-color"
         } to='/myLists'>My Lists</NavLink>
