@@ -4,24 +4,31 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import QueryCard from "../../Components/QueryCard/QueryCard";
+import { SyncLoader } from "react-spinners";
 
 
 const MyQuery = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
 
 
     const [myQuery, setMyQuery] = useState([]);
+    const [isdeleted, setIsDeleted] = useState(false);
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/queries/${user?.email}`)
             .then(data => setMyQuery(data.data))
-    }, [user])
+    }, [user, isdeleted])
 
     console.log(myQuery)
-    // if(myQuery) {
-    //     return <p className="text-7xl">NO Data.....</p>
-    // }
+
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><SyncLoader color="#36d7b7" /></div>
+    }
+
+
+
 
 
     return (
@@ -42,10 +49,21 @@ const MyQuery = () => {
             </div>
 
             <div className="container mx-auto mt-16 space-y-10">
-                <h1 className="text-5xl font-medium">My Queries</h1>
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
+                <h1 className="text-5xl font-medium text-center">My Queries</h1>
+                <div>
                     {
-                        myQuery?.map(item => <QueryCard key={item._id} queryData={item}></QueryCard>)
+                        myQuery.length > 0 ? <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
+                            {
+                                myQuery?.map(item => <QueryCard key={item._id} queryData={item} isdeleted={isdeleted} setIsDeleted={setIsDeleted}></QueryCard>)
+                            }
+                        </div> :
+                            <div className=" flex flex-col items-center gap-5 justify-center">
+                                <div className="lg:w-1/3">
+                                    <img className="w-full h-full" src={'https://i.ibb.co/Y7gxLpX/no-data-found-illustration-sites-banner-design-vector-illustration-620585-1690.jpg'} alt="" />
+                                </div>
+                                <Link to={'/add-query'}><button className="lg:text-lg md:text-lg btn hover:text-primary-color hover:bg-white hover:border-primary-color bg-primary-color text-white font-medium  border-none px-5"> Add Query</button></Link>
+
+                            </div>
                     }
                 </div>
             </div>

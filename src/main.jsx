@@ -13,6 +13,7 @@ import { Toaster } from 'react-hot-toast';
 import MyQuery from './Pages/MyQuery/MyQuery.jsx';
 import AddQuery from './Pages/AddQuery/AddQuery.jsx';
 import UpdateQuery from './Pages/UpdateQuery/UpdateQuery.jsx';
+import QueryDetails from './Pages/QueryDetails/QueryDetails.jsx';
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path:'/update/:id',
         element:<UpdateQuery></UpdateQuery>
+      },
+      {
+        path:'/query-details/:id',
+        element:<QueryDetails></QueryDetails>
       }
     ]
   },

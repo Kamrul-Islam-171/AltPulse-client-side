@@ -2,8 +2,16 @@ import { Link } from "react-router-dom";
 
 import { CiEdit } from "react-icons/ci";
 import { MdAutoDelete, MdDelete } from "react-icons/md";
-const QueryCard = ({ queryData }) => {
+import axios from "axios";
+const QueryCard = ({ queryData, isdeleted, setIsDeleted }) => {
     const { _id, ProductImage, ProductBrand, ProductName, QueryTItle, BoycottingReason, recommendationCount, curTime, curDate } = queryData;
+
+    const handleDelete = async(id) => {
+        // console.log(id)
+        const {data} = await axios.delete(`${import.meta.env.VITE_API_URL}/delete-query/${id}`)
+        console.log(data)
+        setIsDeleted(!isdeleted)
+    }
     return (
         <div>
             <div className="shadow-md border border-gray-200 h-[655px] ">
@@ -26,9 +34,9 @@ const QueryCard = ({ queryData }) => {
 
 
                     <div className="flex gap-4">
-                        <Link to={`/query/${_id}`}><button className="btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">View Details</button></Link>
+                        <Link to={`/query-details/${_id}`}><button className="btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">View Details</button></Link>
                         <Link to={`/update/${_id}`}><button  title="Edit" className="btn mt-2 text-2xl bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5"><CiEdit></CiEdit></button></Link>
-                        <button title="Delete" className="btn text-2xl mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5"><MdDelete></MdDelete></button>
+                        <button onClick={() => handleDelete(_id)} title="Delete" className="btn text-2xl mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5"><MdDelete></MdDelete></button>
                     </div>
                 </div>
             </div>
