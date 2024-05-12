@@ -17,6 +17,7 @@ import QueryDetails from './Pages/QueryDetails/QueryDetails.jsx';
 import Queries from './Pages/Queries/Queries.jsx';
 import QueryDetailsAll from './Pages/QueryDetailsAll/QueryDetailsAll.jsx';
 import MyRecommendations from './Pages/MyRecommendations/MyRecommendations.jsx';
+import RecommendationForMe from './Pages/RecommendationForMe/RecommendationForMe.jsx';
 
 
 const router = createBrowserRouter([
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path:'/myRecommendations',
         element:<MyRecommendations></MyRecommendations>
+      },
+      {
+        path:'/recommendations-for-me',
+        element:<RecommendationForMe></RecommendationForMe>
       }
     ]
   },

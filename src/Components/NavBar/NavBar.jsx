@@ -80,15 +80,15 @@ const NavBar = () => {
         } to={`/blogs/${1}`}>Blogs</NavLink> */}
         <NavLink className={({ isActive }) =>
             isActive ? "  font-medium border-b-2 border-primary-color text-primary-color p-2" : "font-medium  p-2 rounded-lg hover:text-primary-color"
-        } to='/feedback'>Feedbacks</NavLink>
-        <NavLink className={({ isActive }) =>
+        } to='/recommendations-for-me'>Recommendations For Me</NavLink>
+        {/* <NavLink className={({ isActive }) =>
             isActive ? "  font-medium border-b-2 border-primary-color text-primary-color p-2" : "font-medium  p-2 rounded-lg hover:text-primary-color"
-        } to='/aboutUs'>About Us</NavLink>
+        } to='/aboutUs'>About Us</NavLink> */}
     </>
 
     return (
         <div className="fixed w-full z-10 top-0">
-          
+
 
             <div className="navbar bg-base-100">
                 <div className="navbar-start">

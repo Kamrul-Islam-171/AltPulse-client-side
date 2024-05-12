@@ -3,30 +3,41 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 
 import { MdDeleteOutline } from "react-icons/md";
+import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 
 const MyRecommendations = () => {
     const { user } = useContext(AuthContext);
     const [myRecommendation, setMyRecommendation] = useState([]);
+    const [isDelete, SetIsDelete] = useState(false);
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/my-recommendation/${user?.email}`)
             .then(data => setMyRecommendation(data.data))
          
-    }, [user])
+    }, [user, isDelete])
 
     
 
     const handleDelete = (id, queryId) => {
         console.log(queryId);
         axios.delete(`${import.meta.env.VITE_API_URL}/deleteRecommendation/${id}`)
-        .then(data => console.log(data.data))
+        .then(data => {
+            if(data.data.deletedCount) {
+                toast.success('Successfully deleted');
+                SetIsDelete(!isDelete)
+            }
+            console.log(data.data)})
         axios.patch(`${import.meta.env.VITE_API_URL}/recommendation-decrease/${queryId}`)
         .then(data => console.log(data.data))   
     }
     return (
         <div className="container mx-auto pt-10 space-y-5">
-            <h1 className="text-5xl text-center font-medium">My Recommendations</h1>
+            <Helmet>
+                <title>My Recommendations</title>
+            </Helmet>
+            <h1 className="text-4xl text-center font-medium">My Recommendations</h1>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
