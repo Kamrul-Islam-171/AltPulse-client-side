@@ -150,14 +150,21 @@ const QueryDetailsAll = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto mt-16 space-y-8">
-                <h1 className="text-5xl">Recommendation : </h1>
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
-                    {
-                        allRecommendation?.map(recommend => <RecommendCard key={recommend._id} recommend={recommend}></RecommendCard>)
-                    }
-                </div>
-            </div>
+            {
+                allRecommendation?.length > 0 &&
+                    <div>
+                        <div className="container mx-auto mt-16 space-y-8">
+                            <h1 className="text-5xl">Recommendation : </h1>
+                            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+                                {
+                                    allRecommendation?.map(recommend => <RecommendCard key={recommend._id} recommend={recommend}></RecommendCard>)
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+            }
 
             <div className="mt-16 container mx-auto">
                 <h1 className="text-center text-5xl font-medium">Add A Recommendation</h1>
