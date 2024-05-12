@@ -12,14 +12,17 @@ const MyRecommendations = () => {
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/my-recommendation/${user?.email}`)
             .then(data => setMyRecommendation(data.data))
+         
     }, [user])
 
-    // console.log(myRecommendation)
+    
 
-    const handleDelete = (id) => {
-        // console.log(id);
+    const handleDelete = (id, queryId) => {
+        console.log(queryId);
         axios.delete(`${import.meta.env.VITE_API_URL}/deleteRecommendation/${id}`)
         .then(data => console.log(data.data))
+        axios.patch(`${import.meta.env.VITE_API_URL}/recommendation-decrease/${queryId}`)
+        .then(data => console.log(data.data))   
     }
     return (
         <div className="container mx-auto pt-10 space-y-5">
@@ -43,7 +46,7 @@ const MyRecommendations = () => {
                                     <th>{idx + 1}</th>
                                     <td>{item.RecommendationProductName}</td>
                                     <td title={item.RecommendationReason}>{item.RecommendationReason.slice(0,50)}...</td>
-                                    <td ><button className="text-xl " title="Remove" onClick={() => handleDelete(item._id)}><MdDeleteOutline /></button></td>
+                                    <td ><button className="text-xl " title="Remove" onClick={() => handleDelete(item._id, item.queryId)}><MdDeleteOutline /></button></td>
                                 </tr>
                             )
                         }
