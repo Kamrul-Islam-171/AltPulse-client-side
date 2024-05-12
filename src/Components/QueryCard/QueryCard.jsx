@@ -34,7 +34,7 @@ const QueryCard = ({ queryData, isdeleted, setIsDeleted }) => {
 
 
                     <div className="flex gap-4">
-                        <Link to={`/query-details/${_id}`}><button className="btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">View Details</button></Link>
+                        <Link to={`/query-details-with-all/${_id}`}><button className="btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">View Details</button></Link>
                         <Link to={`/update/${_id}`}><button  title="Edit" className="btn mt-2 text-2xl bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5"><CiEdit></CiEdit></button></Link>
                         <button onClick={() => handleDelete(_id)} title="Delete" className="btn text-2xl mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5"><MdDelete></MdDelete></button>
                     </div>

@@ -6,19 +6,24 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
+import RecommendCard from "../../Components/RecommendCard/RecommendCard";
 
 
 const QueryDetailsAll = () => {
     const { id } = useParams();
     const [queryDetails, setQueryDetails] = useState({});
+    const [allRecommendation, setAllRecommendation] = useState([]);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     // console.log(id);
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/query/${id}`)
             .then(data => setQueryDetails(data.data))
+
+        axios.get(`${import.meta.env.VITE_API_URL}/query-recommendation/${id}`)
+            .then(data => setAllRecommendation(data.data))
     }, [])
-    // console.log(spotDetails)
+    console.log(allRecommendation)
     let { _id, ProductImage, ProductBrand, ProductName, email, name, image, QueryTItle, BoycottingReason, recommendationCount, curTime, curDate } = queryDetails;
 
     const {
@@ -45,13 +50,13 @@ const QueryDetailsAll = () => {
         const RecommendationProductImage = data.RecommendationProductImage;
         const RecommendationReason = data.RecommendationReason;
         const queryId = _id;
-        
+
 
 
         const RecommendationEmail = user?.email;
         const RecommendationName = user?.displayName;
         const RecommendationImage = user?.photoURL;
-        recommendationCount = recommendationCount + 1;
+        // recommendationCount = recommendationCount + 1;
         const currentDate = new Date();
 
         // if(RecommendationEmail === email) {
@@ -76,13 +81,14 @@ const QueryDetailsAll = () => {
         const curTime = `${hours}:${minutes}:${seconds}, ${amPM}`;
 
 
-        const recommendation = { RecommendationProductName, RecommendationProductImage, RecommendationTitle, RecommendationReason, queryId, QueryTItle, ProductName, RecommendationEmail, RecommendationName, RecommendationImage, recommendationCount, curTime, curDate, queryEmail : email, queryName : name, queryImage : image };
+        const recommendation = { RecommendationProductName, RecommendationProductImage, RecommendationTitle, RecommendationReason, queryId, QueryTItle, ProductName, RecommendationEmail, RecommendationName, RecommendationImage, recommendationCount, curTime, curDate, queryEmail: email, queryName: name, queryImage: image };
 
         // console.log(recommendation)
 
         try {
-            const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/recommendation`, recommendation);
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/recommendation`, recommendation);
             await axios.patch(`${import.meta.env.VITE_API_URL}/recommendation/${_id}`)
+
             console.log(data);
             toast.success('Recommendation  Successful');
             navigate('/queries');
@@ -144,6 +150,15 @@ const QueryDetailsAll = () => {
                 </div>
             </div>
 
+            <div className="container mx-auto mt-16 space-y-8">
+                <h1 className="text-5xl">Recommendation : </h1>
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+                    {
+                        allRecommendation?.map(recommend => <RecommendCard key={recommend._id} recommend={recommend}></RecommendCard>)
+                    }
+                </div>
+            </div>
+
             <div className="mt-16 container mx-auto">
                 <h1 className="text-center text-5xl font-medium">Add A Recommendation</h1>
                 <form noValidate="" className="space-y-3 mt-10 mb-6 " onSubmit={handleSubmit(onSubmit)}>
@@ -172,7 +187,7 @@ const QueryDetailsAll = () => {
                         {errors?.RecommendationProductImage?.types?.required && <p className="text-red-500">This field is required</p>}
                     </div>
                     <div className=" ">
-                        
+
 
                         <div className="space-y-1 text-sm">
                             <label htmlFor="RecommendationReason" className="block  text-lg">Reason</label>
