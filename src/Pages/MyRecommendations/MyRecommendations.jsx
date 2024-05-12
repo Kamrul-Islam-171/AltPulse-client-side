@@ -17,7 +17,9 @@ const MyRecommendations = () => {
     // console.log(myRecommendation)
 
     const handleDelete = (id) => {
-        console.log(id);
+        // console.log(id);
+        axios.delete(`${import.meta.env.VITE_API_URL}/deleteRecommendation/${id}`)
+        .then(data => console.log(data.data))
     }
     return (
         <div className="container mx-auto pt-10 space-y-5">
