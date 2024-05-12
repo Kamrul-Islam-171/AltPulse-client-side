@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Components/Header/Header";
+import Footer from "../Components/Footer/Footer";
 
 
 const MainRoutes = () => {
@@ -11,7 +12,9 @@ const MainRoutes = () => {
             <div className={`mt-[80px]`}>
                 <Outlet></Outlet>
             </div>
-            {/* <Footer></Footer> */}
+            <div className="mt-10">
+                <Footer></Footer>
+            </div>
         </div>
     );
 };
