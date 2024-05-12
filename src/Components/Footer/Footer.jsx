@@ -46,7 +46,7 @@ const Footer = () => {
                             </div>
                             <div className="flex items-center gap-2 justify-center lg:justify-start">
                                 <span ><MdMailOutline /></span>
-                                <p>tourista@gmil.com</p>
+                                <p>altpulse@gmil.com</p>
                             </div>
                         </div>
 
