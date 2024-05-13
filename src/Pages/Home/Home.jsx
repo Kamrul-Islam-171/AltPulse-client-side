@@ -39,6 +39,59 @@ const Home = () => {
 
             </div>
 
+
+            <div className='container mx-auto mt-20 space-y-8 font-medium'>
+                <h1 className='text-3xl'>Alternative Product FAQs: Your Questions Answered</h1>
+                {/* accordinia */}
+                <div className="join join-vertical w-full">
+                    <div className="collapse collapse-arrow join-item border border-base-300">
+                        <input type="radio" name="my-accordion-4" defaultChecked />
+                        <div className="collapse-title text-xl font-medium">
+                            Why should I consider alternative products?
+                        </div>
+                        <div className="collapse-content">
+                            <p>Alternative products can offer various benefits such as cost savings, environmental sustainability, unique features, or ethical considerations. They provide consumers with more choices and options to suit their preferences and values.</p>
+                        </div>
+                    </div>
+                    <div className="collapse collapse-arrow join-item border border-base-300">
+                        <input type="radio" name="my-accordion-4" />
+                        <div className="collapse-title text-xl font-medium">
+                            How do I know if an alternative product is right for me?
+                        </div>
+                        <div className="collapse-content">
+                            <p>Consider factors such as your preferences, needs, budget, and values when evaluating alternative products. Look for features or attributes that align with your priorities and conduct thorough research to make an informed decision.</p>
+                        </div>
+                    </div>
+                    <div className="collapse collapse-arrow join-item border border-base-300">
+                        <input type="radio" name="my-accordion-4" />
+                        <div className="collapse-title text-xl font-medium">
+                            Can I trust alternative product recommendations from online sources?
+                        </div>
+                        <div className="collapse-content">
+                            <p>It's essential to critically evaluate alternative product recommendations from online sources, considering factors such as credibility, transparency, and relevance. Look for reviews from trusted sources, consider multiple opinions, and verify information to make well-informed decisions.</p>
+                        </div>
+                    </div>
+                    <div className="collapse collapse-arrow join-item border border-base-300">
+                        <input type="radio" name="my-accordion-4" />
+                        <div className="collapse-title text-xl font-medium">
+                            How can I determine the environmental impact of alternative products?
+                        </div>
+                        <div className="collapse-content">
+                            <p>This question delves into factors such as carbon footprint, energy efficiency, recyclability, and sustainable sourcing practices, helping users make environmentally conscious choices.</p>
+                        </div>
+                    </div>
+                    <div className="collapse collapse-arrow join-item border border-base-300">
+                        <input type="radio" name="my-accordion-4" />
+                        <div className="collapse-title text-xl font-medium">
+                            How do I know if an alternative product is ethically produced?
+                        </div>
+                        <div className="collapse-content">
+                            <p>This question examines ethical considerations such as fair labor practices, animal welfare standards, and supply chain transparency, empowering users to make socially responsible choices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div className='mt-20 mb-12 space-y-10'>
                 <h1 className='text-4xl text-center font-medium'>Some Trusted Brands</h1>
                 <Marquee >
