@@ -8,7 +8,7 @@ const RecommendationForMe = () => {
     const [reccomForMe, setRecomForMe] = useState([]);
     const { user } = useContext(AuthContext);
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/recommendation-for-me/${user?.email}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/recommendation-for-me/${user?.email}`, {withCredentials:true})
             .then(data => setRecomForMe(data.data))
     }, [user])
 

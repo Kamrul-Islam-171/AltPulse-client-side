@@ -12,7 +12,7 @@ const Home = () => {
         axios.get(`${import.meta.env.VITE_API_URL}/recent-six`)
         .then(data => setRecentQueries(data.data))
     }, [])
-    console.log(recentQueries)
+    // console.log(recentQueries)
     return (
         <div>
             <Helmet>

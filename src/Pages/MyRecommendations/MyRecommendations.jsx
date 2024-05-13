@@ -13,7 +13,7 @@ const MyRecommendations = () => {
     const [isDelete, SetIsDelete] = useState(false);
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/my-recommendation/${user?.email}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/my-recommendation/${user?.email}`, {withCredentials : true})
             .then(data => setMyRecommendation(data.data))
          
     }, [user, isDelete])

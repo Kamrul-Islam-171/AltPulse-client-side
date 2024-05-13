@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 
 
@@ -24,7 +25,7 @@ const Login = () => {
     //     AOS.init();
     // }, [])
 
-    const {SignInUser, udpateUserProfile, user, GoogleLogin, GithubLogin} = useContext(AuthContext);
+    const { SignInUser, udpateUserProfile, user, GoogleLogin, GithubLogin } = useContext(AuthContext);
     // console.log(GithubLogin); 
     const scrollToTop = () => {
         window.scrollTo(0, 0)
@@ -46,56 +47,64 @@ const Login = () => {
         console.log(email)
 
         SignInUser(email, password)
-        .then(result => {
-            // console.log('signed in', result.user);
-            toast.success('Successfully logged in')
-            // navigate('/')
-            navigate(location?.state ? location.state : '/');
-        })
-        .catch(error => {
-            console.log(error)
-            toast.error('User email or Password does not match');
-        })
+            .then(result => {
+                // console.log('signed in', result.user);
+                toast.success('Successfully logged in')
+                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: result?.user?.email }, {withCredentials:true})
+                    .then(data => console.log(data.data))
+                // navigate('/')
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                console.log(error)
+                toast.error('User email or Password does not match');
+            })
 
     }
     // console.log(watch("example")) // watch input value by passing the name of it
 
     const handleGoogleLogin = () => {
         GoogleLogin()
-        .then(() => {
-            // console.log('google login done')
-            // toast.success('Successfully logged in')
-            navigate(location?.state ? location.state : '/')
-            navigate('/')
-        })
-        .catch(error => console.log(error))
+            .then((result) => {
+                // console.log('google login done')
+                toast.success('Successfully logged in')
+                // console.log(result.user)
+
+                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: result?.user?.email }, {withCredentials:true})
+                    .then(data => console.log(data.data))
+
+
+                navigate(location?.state ? location.state : '/')
+                // navigate('/')
+            })
+            .catch(error => console.log(error))
     }
 
     const handleGithubLogin = () => {
         GithubLogin()
-        .then((result) => {
-            // console.log('git hub login done')
-            // toast.success('Successfully logged in')
-            
-            // console.log(result.user.photoURL)
-            // console.log(result.user.reloadUserInfo.providerUserInfo[0].screenName)
-            udpateUserProfile(result.user.reloadUserInfo.providerUserInfo[0].screenName, result.user.photoURL)
-            .then(() => {
-                // console.log('profile updated by github')
+            .then((result) => {
+                // console.log('git hub login done')
                 // toast.success('Successfully logged in')
-                // location.reload();
-                // navigate(location?.state? location.state : '/');
-                // location.reload();
 
+                // console.log(result.user.photoURL)
+                // console.log(result.user.reloadUserInfo.providerUserInfo[0].screenName)
+                udpateUserProfile(result.user.reloadUserInfo.providerUserInfo[0].screenName, result.user.photoURL)
+                    .then(() => {
+                        // console.log('profile updated by github')
+                        // toast.success('Successfully logged in')
+                        // location.reload();
+                        // navigate(location?.state? location.state : '/');
+                        // location.reload();
+
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+                // location.reload();
             })
             .catch(error => {
                 console.log(error)
             })
-            // location.reload();
-        })
-        .catch(error => {
-            console.log(error)
-        })
 
         // reloadUserInfo->providerUserInfo
 
@@ -112,7 +121,7 @@ const Login = () => {
 
 
             <div className="flex justify-center items-center mt-32 mb-24">
-                <div data-aos='fade-left' data-aos-duration = '1000' className="w-full max-w-md p-8 space-y-3 rounded-xl border-primary-color border text-gray-700">
+                <div data-aos='fade-left' data-aos-duration='1000' className="w-full max-w-md p-8 space-y-3 rounded-xl border-primary-color border text-gray-700">
                     <h1 className="text-2xl font-bold text-center text-primary-color">Login</h1>
                     <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                         <div className="space-y-1 text-sm">
@@ -121,7 +130,7 @@ const Login = () => {
                         </div>
                         <div className="space-y-1 text-sm">
                             <label htmlFor="password" className="block text-gray-700">Password</label>
-                            <input type="password"  {...register("password", { required: true, minLength: 6})} placeholder="Password" className="border border-primary-color w-full px-4 py-3 rounded-md border-gray-700  focus:border-violet-400" />
+                            <input type="password"  {...register("password", { required: true, minLength: 6 })} placeholder="Password" className="border border-primary-color w-full px-4 py-3 rounded-md border-gray-700  focus:border-violet-400" />
                             {errors?.password?.types?.required && <p className="text-red-500">password required</p>}
                             {errors?.password?.types?.minLength && <p className="text-red-500">password minLength 6</p>}
                             {/* {errors?.password?.types?.pattern && <p>password number only</p>} */}

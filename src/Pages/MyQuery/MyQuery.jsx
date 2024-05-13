@@ -16,7 +16,7 @@ const MyQuery = () => {
     const [isdeleted, setIsDeleted] = useState(false);
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/queries/${user?.email}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/queries/${user?.email}`, {withCredentials:true})
             .then(data => setMyQuery(data.data))
     }, [user, isdeleted])
 

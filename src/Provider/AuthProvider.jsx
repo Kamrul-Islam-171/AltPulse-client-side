@@ -9,6 +9,7 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 import PropTypes from 'prop-types'; // ES6
 import auth from "../../firebase.config";
+import axios from "axios";
 
 
 
@@ -52,8 +53,10 @@ const AuthProvider = ({ children }) => {
     }
 
 
-    const userLogOut = () => {
+    const userLogOut = async() => {
         setLoading(true);
+        const {data} =  await axios(`${import.meta.env.VITE_API_URL}/logOut`, {withCredentials:true});
+        console.log(data)
         return signOut(auth);
     }
 
