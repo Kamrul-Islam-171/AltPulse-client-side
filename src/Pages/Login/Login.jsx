@@ -49,12 +49,12 @@ const Login = () => {
         .then(result => {
             // console.log('signed in', result.user);
             toast.success('Successfully logged in')
-            navigate('/')
-            // navigate(location?.state ? location.state : '/');
+            // navigate('/')
+            navigate(location?.state ? location.state : '/');
         })
         .catch(error => {
             console.log(error)
-            // toast.error('User email or Password does not match');
+            toast.error('User email or Password does not match');
         })
 
     }
@@ -65,7 +65,7 @@ const Login = () => {
         .then(() => {
             // console.log('google login done')
             // toast.success('Successfully logged in')
-            // navigate(location?.state ? location.state : '/')
+            navigate(location?.state ? location.state : '/')
             navigate('/')
         })
         .catch(error => console.log(error))
