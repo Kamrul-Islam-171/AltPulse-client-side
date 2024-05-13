@@ -50,10 +50,13 @@ const Login = () => {
             .then(result => {
                 // console.log('signed in', result.user);
                 toast.success('Successfully logged in')
-                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: result?.user?.email }, {withCredentials:true})
-                    .then(data => console.log(data.data))
+                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: result?.user?.email }, { withCredentials: true })
+                    .then(data => {
+                        console.log(data.data)
+                        navigate(location?.state ? location.state : '/');
+                    })
                 // navigate('/')
-                navigate(location?.state ? location.state : '/');
+
             })
             .catch(error => {
                 console.log(error)
@@ -70,11 +73,11 @@ const Login = () => {
                 toast.success('Successfully logged in')
                 // console.log(result.user)
 
-                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: result?.user?.email }, {withCredentials:true})
-                    .then(data => console.log(data.data))
-
-
-                navigate(location?.state ? location.state : '/')
+                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: result?.user?.email }, { withCredentials: true })
+                    .then(data => {
+                        console.log(data.data)
+                        navigate(location?.state ? location.state : '/');
+                    })
                 // navigate('/')
             })
             .catch(error => console.log(error))

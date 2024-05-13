@@ -5,18 +5,29 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import QueryCard from "../../Components/QueryCard/QueryCard";
 import { SyncLoader } from "react-spinners";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
 const MyQuery = () => {
 
+    // useEffect(() => {
+    //     window.location.reload();
+    // }, [])
+    // setTimeout(function() {
+    //     window.location.reload();
+    // }, 1);
+
     const { user, loading } = useContext(AuthContext);
+    const axiosSecure = useAxiosSecure();
 
 
     const [myQuery, setMyQuery] = useState([]);
     const [isdeleted, setIsDeleted] = useState(false);
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/queries/${user?.email}`, {withCredentials:true})
+        // axios.get(`${import.meta.env.VITE_API_URL}/queries/${user?.email}`, {withCredentials:true})
+        //     .then(data => setMyQuery(data.data))
+        axiosSecure(`/queries/${user?.email}`)
             .then(data => setMyQuery(data.data))
     }, [user, isdeleted])
 
