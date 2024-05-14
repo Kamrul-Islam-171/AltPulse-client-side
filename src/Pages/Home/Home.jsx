@@ -51,8 +51,53 @@ const Home = () => {
                 </div>
             </div>
 
+            <div className='container mx-auto mt-28 grid lg:grid-cols-3 md:grid-cols-2 gap-8'>
+                <div className='space-y-3   px-8 shadow-xl py-12 rounded-md'>
+                    <h3 className='text-2xl font-medium'>Popular Categories</h3>
+                    <div className='h-[2px] bg-primary-color'></div>
+                    <div>
+                        <ul className='ml-3 space-y-1 list-disc'>
+                            <li>Technology and Electronics</li>
+                            <li>Fashion and Apparel</li>
+                            <li>Beauty and Personal Care</li>
+                            <li>Health and Wellness</li>
+                            <li>Food and Beverages</li>
+                            <li>Sports and Outdoors</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className='space-y-3   px-8 shadow-xl py-12 rounded-md'>
+                    <h3 className='text-2xl font-medium'>Trending Categories</h3>
+                    <div className='h-[2px] bg-primary-color'></div>
+                    <div>
+                        <ul className='ml-3 space-y-1 list-disc'>
+                            <li>Sustainable Living</li>
+                            <li>Smart Home Devices</li>
+                            <li>Plant-Based and Vegan Products</li>
+                            <li>Fitness and Wellness Products</li>
+                            <li>Food and Beverages</li>
+                            <li>Sports and Outdoors</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className='space-y-3   px-8 shadow-xl py-12 rounded-md'>
+                    <h3 className='text-2xl font-medium'>Latest Categories</h3>
+                    <div className='h-[2px] bg-primary-color'></div>
+                    <div>
+                        <ul className='ml-3 space-y-1 list-disc'>
+                            <li>Plant-Based Home Cleaning Products</li>
+                            <li>Fashion and Apparel</li>
+                            <li>Beauty and Personal Care</li>
+                            <li>Hydroponic and Indoor Gardening Kits</li>
+                            <li>Natural and Organic Mattresses</li>
+                            <li>Mindful Tech Detox Retreats</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-            <div className='lg:pt-16 md:pt-0'>
+
+            <div className='lg:pt-8 md:pt-0'>
                 <Bannar></Bannar>
             </div>
 
