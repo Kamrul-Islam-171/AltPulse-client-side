@@ -7,7 +7,7 @@ const AllQueryCard = ({ queryData }) => {
 
     return (
         <div>
-            <div className="shadow-md border border-gray-200 h-[715px] ">
+            <div className="shadow-xl rounded-md overflow-hidden h-[715px] ">
                 <div className="w-full h-[400px] overflow-hidden" id="container">
                     <img className="w-full object-cover h-full image1" src={ProductImage} alt="" />
                 </div>

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import AllQueryCard from "../../Components/AllQueryCard/AllQueryCard";
 import { Helmet } from "react-helmet-async";
+import { SyncLoader } from "react-spinners";
 
 
 const Queries = () => {
@@ -10,11 +11,15 @@ const Queries = () => {
     const [gridLayout, setGridLayout] = useState('grid-cols-1');
     // const [inputValue, setInputValue] = useState('');
     const [isSearched, setIsSearched] = useState(false);
+    const [loading, setLoading] = useState(true)
     const inputValue = useRef('');
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/queries`)
-            .then(data => setAllQuery(data.data));
+            .then(data => {
+                setAllQuery(data.data);
+                setLoading(false);
+            });
     }, [])
 
     const getData = () => {
@@ -22,7 +27,8 @@ const Queries = () => {
     }
 
     const handleSerach = () => {
-        console.log(inputValue.current.value)
+        // setLoading(true);
+        // console.log(inputValue.current.value)
         // setIsSearched(!isSearched)
 
         axios.get(`${import.meta.env.VITE_API_URL}/queries`)
@@ -31,11 +37,16 @@ const Queries = () => {
                 const searchResult = data.data.filter(item => item.ProductName.toLowerCase().includes(inputValue.current.value.toLowerCase()));
                 // console.log(searchResult)
                 setAllQuery(searchResult);
+                
             });
 
         // const searchResult = allQuery.filter(item => item.ProductName.toLowerCase().includes(inputValue.current.value.toLowerCase()));
-        
+
         // setAllQuery(searchResult);
+    }
+
+    if(loading) {
+        return <div className="flex justify-center items-center h-screen"><SyncLoader color="#36d7b7" /></div>
     }
 
     // console.log(allQuery)

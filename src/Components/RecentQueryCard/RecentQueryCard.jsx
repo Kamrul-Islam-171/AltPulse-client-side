@@ -7,9 +7,9 @@ const RecentQueryCard = ({ queryData }) => {
 
     return (
         <div>
-            <div className="shadow-md border border-gray-200 h-[655px] ">
-                <div className="w-full h-[400px] overflow-hidden" id="container">
-                    <img className="w-full object-cover h-full image1" src={ProductImage} alt="" />
+            <div className="shadow-xl  h-[660px] rounded-md overflow-hidden">
+                <div className="w-full h-[400px] " id="container">
+                    <img className="w-full overflow-hidden object-cover h-full image1" src={ProductImage} alt="" />
                 </div>
                 <div className="flex gap-3 justify-end px-2">
                     <p>Posted Time : </p>
@@ -20,7 +20,7 @@ const RecentQueryCard = ({ queryData }) => {
 
                     <h1 className="text-xl font-medium">{ProductName}</h1>
                     <p><span className="font-medium">Brands :</span> {ProductBrand}</p>
-                    <p className="absolute  text-lg py-2 font-semibold -top-24 bg-base-100 px-2">{QueryTItle}!!</p>
+                    <p className="absolute  lg:text-lg py-2 font-semibold -top-24 bg-base-100 px-2">{QueryTItle}!!</p>
                     <p title={BoycottingReason} className="cursor-pointer"><span className="font-medium"> Alternation Reasons : </span>{BoycottingReason.slice(0, 40)}...</p>
 
                     <p><span className="font-medium">Recomendation  :</span> <span>{recommendationCount}</span></p>

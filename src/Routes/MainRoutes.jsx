@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
+import NavBar2 from "../Components/Navbar2/NavBar2";
 
 
 const MainRoutes = () => {
@@ -8,7 +9,8 @@ const MainRoutes = () => {
     return (
         <div>
             <Header></Header>
-            {/* <Outlet></Outlet> */}
+            {/* <NavBar2></NavBar2> */}
+            
             <div className={`mt-[80px]`}>
                 <Outlet></Outlet>
             </div>

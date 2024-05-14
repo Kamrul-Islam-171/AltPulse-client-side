@@ -2,15 +2,25 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import { SyncLoader } from "react-spinners";
 
 
 const RecommendationForMe = () => {
     const [reccomForMe, setRecomForMe] = useState([]);
+    const [loading, setLoading] = useState(true)
     const { user } = useContext(AuthContext);
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/recommendation-for-me/${user?.email}`, {withCredentials:true})
-            .then(data => setRecomForMe(data.data))
+            .then(data => {
+                setRecomForMe(data.data);
+                setLoading(false)
+            })
     }, [user])
+
+    
+    if(loading) {
+        return <div className="flex justify-center items-center h-screen"><SyncLoader color="#36d7b7" /></div>
+    }
 
     // console.log(reccomForMe)
     return (

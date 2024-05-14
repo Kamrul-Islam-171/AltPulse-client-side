@@ -14,7 +14,7 @@ const QueryCard = ({ queryData, isdeleted, setIsDeleted }) => {
     }
     return (
         <div>
-            <div className="shadow-md border border-gray-200 h-[655px] ">
+            <div className="shadow-md border border-gray-200 h-[655px] rounded-md overflow-hidden">
                 <div className="w-full h-[400px] overflow-hidden" id="container">
                     <img className="w-full object-cover h-full image1" src={ProductImage} alt="" />
                 </div>

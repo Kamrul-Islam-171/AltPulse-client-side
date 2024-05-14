@@ -39,14 +39,16 @@ const Home = () => {
                     <div className='lg:w-[300px] lg:h-[330px] w-[200px] h-[220px] absolute lg:right-[180px] z-40 lg:top-32 right-[110px] top-[100px]'>
                         <img className='w-full h-full object-cover rounded-2xl' src={'https://i.ibb.co/p4YTpDZ/710h-p.jpg  '} alt="" />
                     </div>
-                    
+
 
 
                 </div>
                 <div className='text-center flex flex-col justify-center items-center space-y-5'>
                     <h1 className='lg:text-6xl text-4xl font-medium'>Search for an idea</h1>
                     <p className='text-2xl'>What do you want to try next? Think of something you’re into—like and see what you find.</p>
-                    <button className="lg:text-lg md:text-lg btn hover:text-primary-color hover:bg-white hover:border-primary-color bg-primary-color text-white font-medium  border-none px-5"> Explore</button>
+                    <div className='border rounded-full border-primary-color'>
+                        <button className="lg:text-lg md:text-lg btn hover:text-primary-color hover:bg-white hover:border-primary-color bg-primary-color text-white font-medium rounded-full border-none px-5"> Explore</button>
+                    </div>
 
                 </div>
             </div>
@@ -97,7 +99,7 @@ const Home = () => {
             </div>
 
 
-            <div className='lg:pt-8 md:pt-0'>
+            <div className='lg:pt-8 md:pt-0 '>
                 <Bannar></Bannar>
             </div>
 

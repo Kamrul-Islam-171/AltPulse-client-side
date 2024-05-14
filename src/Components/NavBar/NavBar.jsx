@@ -87,7 +87,7 @@ const NavBar = () => {
     </>
 
     return (
-        <div className="fixed w-full z-10 top-0">
+        <div className="fixed w-full z-50 top-0">
 
 
             <div className="navbar bg-base-100">
@@ -115,7 +115,7 @@ const NavBar = () => {
                             <>
                                 <div className="dropdown dropdown-end tooltip tooltip-bottom tooltip-success tooltip-" data-tip={user?.displayName}>
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                        <div className="w-12 rounded-full">
+                                        <div className="w-9 rounded-full">
                                             <img alt="Not found" src={user.photoURL} />
                                         </div>
                                     </div>
@@ -131,19 +131,20 @@ const NavBar = () => {
                                     </ul>
                                 </div>
 
-                                <div onClick={scrollToTop} className='border  rounded-lg hover:border-primary-color'>
-                                    <button onClick={handleLogout} className="btn hover:text-primary-color hover:bg-white hover:border-primary-color bg-primary-color text-white font-medium  border-none px-5">LogOut</button>
+                                <div onClick={scrollToTop} className='border  rounded-full hover:border-primary-color'>
+                                    <button onClick={handleLogout} className="btn rounded-full hover:text-primary-color hover:bg-white hover:border-primary-color bg-primary-color text-white font-medium  border-none px-5">LogOut</button>
                                 </div>
                             </>
                             :
                             <>
-                                <div onClick={scrollToTop} className='border  rounded-lg hover:border-primary-color'>
-                                    <Link to='/login' className="btn hover:text-primary-color hover:bg-white hover:border-primary-color bg-primary-color text-white font-medium  border-none px-4">LogIn</Link>
+                                <div onClick={scrollToTop} className='border  rounded-full hover:border-primary-color'>
+                                    <Link to='/login' className="btn hover:text-primary-color hover:bg-white hover:border-primary-color  bg-primary-color text-white rounded-full  font-medium  border-none px-4">LogIn</Link>
+                                    {/* <Link to='/login' className="btn hover:text-primary-color hover:bg-white hover:border-primary-color bg-primary-color text-white rounded-full  font-medium  border-none px-4">LogIn</Link> */}
 
 
                                 </div>
-                                <div onClick={scrollToTop} className='border  rounded-lg hover:border-primary-color'>
-                                    <Link to='/register' className="btn hover:text-primary-color hover:bg-white hover:border-primary-color bg-primary-color text-white font-medium  border-none px-5">Register</Link>
+                                <div onClick={scrollToTop} className='border  rounded-full hover:border-primary-color'>
+                                    <Link to='/register' className="btn hover:text-primary-color hover:bg-white hover:border-primary-color rounded-full bg-primary-color text-white font-medium  border-none px-5">Register</Link>
                                 </div>
                             </>
                     }
