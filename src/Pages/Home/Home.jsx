@@ -21,7 +21,38 @@ const Home = () => {
             </Helmet>
             <Slider></Slider>
 
-            <div>
+
+            <div className='grid lg:grid-cols-2 md:grid-cols-2  h-[600px]'>
+                <div className=' relative lg:h-[600px] h-[400px] md:mt-24 mt-0'>
+                    <div className='lg:w-[200px] lg:h-[200px] w-[120px] h-[120px] absolute lg:right-[100px] lg:top-16 right-[30px] top-[50px]'>
+                        <img className='w-full h-full object-cover rounded-2xl' src={'https://i.ibb.co/XjKyKVQ/Copy-of-New-Recipe-Video-Coming-TODAY-2-1080x675.jpg'} alt="" />
+                    </div>
+                    {/* soap */}
+                    <div className='lg:w-[200px] lg:h-[200px] w-[120px] h-[120px] absolute lg:right-[100px] lg:bottom-16 z-10 right-[30px] bottom-10'>
+                        <img className='w-full h-full object-cover rounded-2xl' src={'https://i.ibb.co/TgMrG9v/0-a8-Ad-UNOW3-C1g-Lu8m.jpg'} alt="" />
+                    </div>
+                    {/* sampoo */}
+                    <div className='lg:w-[200px] lg:h-[200px] w-[120px] h-[120px] absolute lg:left-[120px] z-20 lg:top-48 top-36 left-[30px] md:left-[55px]'>
+                        <img className='w-full h-full object-cover rounded-2xl' src={'https://i.ibb.co/L8wJpxW/file-1-04-4.png'} alt="" />
+                    </div>
+                    {/* honey */}
+                    <div className='lg:w-[300px] lg:h-[330px] w-[200px] h-[220px] absolute lg:right-[180px] z-40 lg:top-32 right-[110px] top-[100px]'>
+                        <img className='w-full h-full object-cover rounded-2xl' src={'https://i.ibb.co/p4YTpDZ/710h-p.jpg  '} alt="" />
+                    </div>
+                    
+
+
+                </div>
+                <div className='text-center flex flex-col justify-center items-center space-y-5'>
+                    <h1 className='lg:text-6xl text-4xl font-medium'>Search for an idea</h1>
+                    <p className='text-2xl'>What do you want to try next? Think of something you’re into—like and see what you find.</p>
+                    <button className="lg:text-lg md:text-lg btn hover:text-primary-color hover:bg-white hover:border-primary-color bg-primary-color text-white font-medium  border-none px-5"> Explore</button>
+
+                </div>
+            </div>
+
+
+            <div className='lg:pt-16 md:pt-0'>
                 <Bannar></Bannar>
             </div>
 
