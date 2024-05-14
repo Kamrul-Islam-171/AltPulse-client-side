@@ -19,12 +19,14 @@ import QueryDetailsAll from './Pages/QueryDetailsAll/QueryDetailsAll.jsx';
 import MyRecommendations from './Pages/MyRecommendations/MyRecommendations.jsx';
 import RecommendationForMe from './Pages/RecommendationForMe/RecommendationForMe.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
+import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainRoutes></MainRoutes>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
