@@ -1,0 +1,15 @@
+.transparent-bg {
+    background-color: transparent;
+    /* Additional styles for your transparent navbar */
+  }
+  
+  .red-bg {
+    background-color: red;
+    /* Additional styles for your navbar with red background */
+  }
+  
+  nav {
+    position: fixed;
+    width: 100%;
+    /* Add other styles as per your design */
+  }

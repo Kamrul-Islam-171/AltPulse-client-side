@@ -8,12 +8,15 @@ const MainRoutes = () => {
     // const navigation = useNavigation();
     return (
         <div>
-            <Header></Header>
-            {/* <NavBar2></NavBar2> */}
+            {/* <Header></Header> */}
+            <NavBar2></NavBar2>
             
-            <div className={`mt-[80px]`}>
+            <div>
                 <Outlet></Outlet>
             </div>
+            {/* <div className={`mt-[80px]`}>
+                <Outlet></Outlet>
+            </div> */}
             <div className="mt-10">
                 <Footer></Footer>
             </div>

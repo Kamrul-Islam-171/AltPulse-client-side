@@ -5,6 +5,9 @@ import Bannar from '../../Components/Bannar/Bannar';
 import axios from 'axios';
 import RecentQueryCard from '../../Components/RecentQueryCard/RecentQueryCard';
 import Marquee from "react-fast-marquee";
+import { motion } from "framer-motion"
+
+import NavBar2 from '../../Components/Navbar2/NavBar2';
 
 const Home = () => {
     const [recentQueries, setRecentQueries] = useState([]);
@@ -118,6 +121,8 @@ const Home = () => {
             </div>
 
 
+
+
             <div className='container mx-auto mt-20 space-y-8 font-medium'>
                 <h1 className='text-3xl'>Alternative Product FAQs: Your Questions Answered</h1>
                 {/* accordinia */}
@@ -195,6 +200,34 @@ const Home = () => {
                     </div>
                 </Marquee>
             </div>
+
+
+
+            <div>
+               
+
+                {/* <FrameMotion></FrameMotion> */}
+
+
+                {/* <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ rotate: 360, scale: 1 }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 250,
+                        damping: 100
+                    }}
+                    className="w-full max-w-xs mx-auto"
+                >
+                    <div className='bg-red-400 w-[100px] h-[100px]'
+                    ></div>
+                </motion.div> */}
+
+            </div>
+{/* 
+            <div>
+                <NavBar2></NavBar2>
+            </div> */}
         </div>
 
 

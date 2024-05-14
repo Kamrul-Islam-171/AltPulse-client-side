@@ -22,8 +22,8 @@ const Slider = () => {
             }}>
                 <SwiperSlide>
 
-                    <div className="h-[calc(100vh-80px)] bg-gradient-to-tr from-[#000000CC] to-[#00000059]" >
-
+                    <div className="h-screen bg-gradient-to-tr from-[#000000CC] to-[#00000059]" >
+                    {/* calc(100vh-80px) */}
                         <div className=' absolute top-1/3 md:left-1/4 lg:left-1/4 left-10 space-y-4'>
                             <Fade direction='down' duration={1000}>
                                 <h1 className='text-5xl font-bold  text-white'>Discover Alternative Products</h1>
@@ -38,8 +38,8 @@ const Slider = () => {
 
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="h-[calc(100vh-80px)] bg-gradient-to-tr from-[#000000CC] to-[#00000059]">
-
+                    <div className="h-screen bg-gradient-to-tr from-[#000000CC] to-[#00000059]">
+                    {/* calc(100vh-80px) */}
                         <div className='space-y-4 absolute top-1/3 md:left-1/4 lg:left-1/4 left-10'>
                             {/* <h1 className='text-5xl font-bold  text-white'>Cameron Highlands</h1> */}
                             <Fade direction='down' duration={1000}>
@@ -54,7 +54,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="h-[calc(100vh-80px)] bg-gradient-to-tr from-[#000000CC] to-[#00000059]">
+                    <div className="h-screen bg-gradient-to-tr from-[#000000CC] to-[#00000059]">
 
                         <div className='space-y-4  absolute top-1/3 md:left-1/4 lg:left-1/4 left-10'>
                             <Fade direction='down' duration={1000}>

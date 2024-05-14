@@ -44,39 +44,42 @@ const MyRecommendations = () => {
         return <div className="flex justify-center items-center h-screen"><SyncLoader color="#36d7b7" /></div>
     }
     return (
-        <div className="container mx-auto pt-10 space-y-5">
-            <Helmet>
-                <title>My Recommendations</title>
-            </Helmet>
-            <h1 className="text-4xl text-center font-medium">My Recommendations</h1>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th className="text-lg">Product Name</th>
-                            <th className="text-lg">Recommendation Reason</th>
-                            <th className="text-lg">Remove</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* row 1 */}
-                        {
-                            myRecommendation?.map((item, idx) =>
-                                <tr key={item._id}>
-                                    <th>{idx + 1}</th>
-                                    <td>{item.RecommendationProductName}</td>
-                                    <td title={item.RecommendationReason}>{item.RecommendationReason.slice(0, 50)}...</td>
-                                    <td ><button className="text-xl " title="Remove" onClick={() => handleDelete(item._id, item.queryId)}><MdDeleteOutline /></button></td>
-                                </tr>
-                            )
-                        }
+        <>
+            <div className="bg-black h-[100px]"></div>
+            <div className="container mx-auto pt-10 space-y-5">
+                <Helmet>
+                    <title>My Recommendations</title>
+                </Helmet>
+                <h1 className="text-4xl text-center font-medium">My Recommendations</h1>
+                <div className="overflow-x-auto">
+                    <table className="table">
+                        {/* head */}
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th className="text-lg">Product Name</th>
+                                <th className="text-lg">Recommendation Reason</th>
+                                <th className="text-lg">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* row 1 */}
+                            {
+                                myRecommendation?.map((item, idx) =>
+                                    <tr key={item._id}>
+                                        <th>{idx + 1}</th>
+                                        <td>{item.RecommendationProductName}</td>
+                                        <td title={item.RecommendationReason}>{item.RecommendationReason.slice(0, 50)}...</td>
+                                        <td ><button className="text-xl " title="Remove" onClick={() => handleDelete(item._id, item.queryId)}><MdDeleteOutline /></button></td>
+                                    </tr>
+                                )
+                            }
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
