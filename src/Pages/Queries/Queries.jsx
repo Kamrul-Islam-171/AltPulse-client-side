@@ -52,9 +52,15 @@ const Queries = () => {
     // console.log(allQuery)
     return (
         <>
-        <div className="bg-black h-[100px]">
-
-        </div>
+            <div className=" h-[500px] relative">
+                <img className="h-full w-full" src={'https://i.ibb.co/FhphGXG/360-F-303123713-D396-PWXk-VS4p-LX9uc-Yws-Ra8-X3yby-MJFP.jpg'} alt="" />
+                <div className="absolute md:w-2/3 md:left-40 lg:w-1/2 w-2/3 left-20 lg:left-1/4 top-1/2">
+                    <div className="mb-10 relative">
+                        <input ref={inputValue} type="text" placeholder="Search by product name... " className="text-white bg-transparent border px-4 py-3 rounded-lg w-full" />
+                        <button onClick={handleSerach} className="absolute top-[8px] right-[15px]  w-[30px] h-[30px] text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70 "><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg></button>
+                    </div>
+                </div>
+            </div>
             <div className="container mx-auto">
                 <Helmet>
                     <title>All Queries</title>
@@ -75,10 +81,10 @@ const Queries = () => {
                 </label>
             </div> */}
 
-                <div className="mb-10 relative">
+                {/* <div className="mb-10 relative">
                     <input ref={inputValue} type="text" placeholder="Search by product name... " className="border border-primary-color px-4 py-3 rounded-lg w-full" />
                     <button onClick={handleSerach} className="absolute top-[8px] right-[15px]  w-[30px] h-[30px]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70 "><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg></button>
-                </div>
+                </div> */}
                 <div className={`grid gap-5 ${gridLayout}`}>
                     {
                         allQuery?.map(queryData => <AllQueryCard key={queryData._id} queryData={queryData}></AllQueryCard>)

@@ -123,8 +123,9 @@ const Home = () => {
 
 
 
-            <div className='container mx-auto mt-20 space-y-8 font-medium'>
+            <div className='container mx-auto mt-20  font-medium'>
                 <h1 className='text-3xl'>Alternative Product FAQs: Your Questions Answered</h1>
+                <div className='bg-primary-color h-[2px] mt-3 mb-8 '></div>
                 {/* accordinia */}
                 <div className="join join-vertical w-full">
                     <div className="collapse collapse-arrow join-item border border-base-300">

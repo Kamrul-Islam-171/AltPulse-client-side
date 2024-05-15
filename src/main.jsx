@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainRoutes></MainRoutes>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -37,40 +37,40 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path:'/register',
-        element:<Register></Register>
+        path: '/register',
+        element: <Register></Register>
       },
       {
-        path:'/my-query',
-        element:<PrivateRoute><MyQuery></MyQuery></PrivateRoute>
+        path: '/my-query',
+        element: <PrivateRoute><MyQuery></MyQuery></PrivateRoute>
       },
       {
-        path:'/add-query',
-        element:<AddQuery></AddQuery>
+        path: '/add-query',
+        element: <PrivateRoute><AddQuery></AddQuery></PrivateRoute>
       },
       {
-        path:'/update/:id',
-        element:<UpdateQuery></UpdateQuery>
+        path: '/update/:id',
+        element: <PrivateRoute><UpdateQuery></UpdateQuery></PrivateRoute>
       },
       {
-        path:'/query-details/:id',
-        element:<QueryDetails></QueryDetails>
+        path: '/query-details/:id',
+        element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>
       },
       {
-        path:'/queries',
-        element:<Queries></Queries>
+        path: '/queries',
+        element: <Queries></Queries>
       },
       {
-        path:'/query-details-with-all/:id',
-        element:<QueryDetailsAll></QueryDetailsAll>
+        path: '/query-details-with-all/:id',
+        element: <PrivateRoute><QueryDetailsAll></QueryDetailsAll></PrivateRoute>
       },
       {
-        path:'/myRecommendations',
-        element:<PrivateRoute><MyRecommendations></MyRecommendations></PrivateRoute>
+        path: '/myRecommendations',
+        element: <PrivateRoute><MyRecommendations></MyRecommendations></PrivateRoute>
       },
       {
-        path:'/recommendations-for-me',
-        element:<PrivateRoute><RecommendationForMe></RecommendationForMe></PrivateRoute>
+        path: '/recommendations-for-me',
+        element: <PrivateRoute><RecommendationForMe></RecommendationForMe></PrivateRoute>
       }
     ]
   },

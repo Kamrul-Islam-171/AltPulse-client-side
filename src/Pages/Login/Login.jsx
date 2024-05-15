@@ -56,6 +56,7 @@ const Login = () => {
                         navigate(location?.state ? location.state : '/');
                     })
                 // navigate('/')
+                navigate(location?.state ? location.state : '/');
 
             })
             .catch(error => {
@@ -79,6 +80,7 @@ const Login = () => {
                         navigate(location?.state ? location.state : '/');
                     })
                 // navigate('/')
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => console.log(error))
     }

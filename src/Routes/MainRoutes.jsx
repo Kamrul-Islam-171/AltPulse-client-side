@@ -11,7 +11,7 @@ const MainRoutes = () => {
             {/* <Header></Header> */}
             <NavBar2></NavBar2>
             
-            <div>
+            <div className="min-h-[calc(100vh-390px)]">
                 <Outlet></Outlet>
             </div>
             {/* <div className={`mt-[80px]`}>

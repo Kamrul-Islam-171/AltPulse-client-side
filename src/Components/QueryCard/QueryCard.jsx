@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 import { CiEdit } from "react-icons/ci";
 import { MdAutoDelete, MdDelete } from "react-icons/md";
@@ -6,11 +7,36 @@ import axios from "axios";
 const QueryCard = ({ queryData, isdeleted, setIsDeleted }) => {
     const { _id, ProductImage, ProductBrand, ProductName, QueryTItle, BoycottingReason, recommendationCount, curTime, curDate } = queryData;
 
-    const handleDelete = async(id) => {
+    const handleDelete = async (id) => {
+ 
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async(result) => {
+            if (result.isConfirmed) {
+                const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/delete-query/${id}`)
+                console.log(data)
+                setIsDeleted(!isdeleted)
+
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+            }
+        });
         // console.log(id)
-        const {data} = await axios.delete(`${import.meta.env.VITE_API_URL}/delete-query/${id}`)
-        console.log(data)
-        setIsDeleted(!isdeleted)
+        // const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/delete-query/${id}`)
+        // console.log(data)
+        // setIsDeleted(!isdeleted)
+    }
+    const scrollToTop = () => {
+        window.scrollTo(0, 0)
     }
     return (
         <div>
@@ -34,8 +60,8 @@ const QueryCard = ({ queryData, isdeleted, setIsDeleted }) => {
 
 
                     <div className="flex gap-4">
-                        <Link to={`/query-details-with-all/${_id}`}><button className="btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">View Details</button></Link>
-                        <Link to={`/update/${_id}`}><button  title="Edit" className="btn mt-2 text-2xl bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5"><CiEdit></CiEdit></button></Link>
+                        <Link to={`/query-details-with-all/${_id}`}><button onClick={scrollToTop} className="btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">View Details</button></Link>
+                        <Link to={`/update/${_id}`}><button title="Edit" className="btn mt-2 text-2xl bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5"><CiEdit></CiEdit></button></Link>
                         <button onClick={() => handleDelete(_id)} title="Delete" className="btn text-2xl mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5"><MdDelete></MdDelete></button>
                     </div>
                 </div>

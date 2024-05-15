@@ -124,7 +124,7 @@ const NavBar2 = () => {
               {navlinks}
             </ul>
           </div>
-          <Link onClick={scrollToTop} to={'/'} className="  w-[50px] h-[50px] "><img className="w-full h-full" src={'https://i.ibb.co/2sgZcDH/altPluse.png'} alt="" /></Link>
+          <Link onClick={scrollToTop} to={'/'} className="mr-3  w-[30px] h-[30px] "><img className="w-full h-full" src={'https://i.ibb.co/2FFGJgC/altpulse-removebg-preview.png'} alt="" /></Link>
           <Link onClick={scrollToTop} to={'/'} className=" font-bold text-lg md:text-xl lg:text-2xl flex gap-0 ">Alt<span className="text-primary-color">Pulse</span></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -161,13 +161,13 @@ const NavBar2 = () => {
               </>
               :
               <>
-                <div onClick={scrollToTop} className='border  rounded-full hover:border-primary-color'>
+                <div onClick={scrollToTop} className=' rounded-full '>
                   <Link to='/login' className="btn hover:text-primary-color hover:bg-white hover:border-primary-color  bg-primary-color text-white rounded-full  font-medium  border-none px-4">LogIn</Link>
                   {/* <Link to='/login' className="btn hover:text-primary-color hover:bg-white hover:border-primary-color bg-primary-color text-white rounded-full  font-medium  border-none px-4">LogIn</Link> */}
 
 
                 </div>
-                <div onClick={scrollToTop} className='border  rounded-full hover:border-primary-color'>
+                <div onClick={scrollToTop} className=' rounded-full '>
                   <Link to='/register' className="btn hover:text-primary-color hover:bg-white hover:border-primary-color rounded-full bg-primary-color text-white font-medium  border-none px-5">Register</Link>
                 </div>
               </>

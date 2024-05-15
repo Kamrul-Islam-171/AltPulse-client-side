@@ -40,20 +40,24 @@ const MyRecommendations = () => {
     }
 
 
-    if (loading) {
-        return <div className="flex justify-center items-center h-screen"><SyncLoader color="#36d7b7" /></div>
-    }
+    // if (loading) {
+    //     return <div className="flex justify-center items-center h-screen"><SyncLoader color="#36d7b7" /></div>
+    // }
     return (
         <>
-            <div className="bg-black h-[100px]"></div>
+            <div className=" h-[100px]">
+                <img className="h-full w-full" src={'https://i.ibb.co/FhphGXG/360-F-303123713-D396-PWXk-VS4p-LX9uc-Yws-Ra8-X3yby-MJFP.jpg'} alt="" />
+            </div>
             <div className="container mx-auto pt-10 space-y-5">
                 <Helmet>
                     <title>My Recommendations</title>
                 </Helmet>
                 <h1 className="text-4xl text-center font-medium">My Recommendations</h1>
-                <div className="overflow-x-auto">
+                {
+                    loading === false ? 
+                    <div className="overflow-x-auto">
                     <table className="table">
-                        {/* head */}
+                        
                         <thead>
                             <tr>
                                 <th></th>
@@ -63,7 +67,7 @@ const MyRecommendations = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* row 1 */}
+                            
                             {
                                 myRecommendation?.map((item, idx) =>
                                     <tr key={item._id}>
@@ -78,6 +82,9 @@ const MyRecommendations = () => {
                         </tbody>
                     </table>
                 </div>
+                :
+                <div className="flex justify-center items-center "><SyncLoader color="#36d7b7" /></div>
+                }
             </div>
         </>
     );
