@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
+import Swal from 'sweetalert2'
 
 import { MdDeleteOutline } from "react-icons/md";
 import toast from "react-hot-toast";
@@ -26,15 +27,41 @@ const MyRecommendations = () => {
 
 
     const handleDelete = (id, queryId) => {
-        console.log(queryId);
-        axios.delete(`${import.meta.env.VITE_API_URL}/deleteRecommendation/${id}`)
-            .then(data => {
-                if (data.data.deletedCount) {
-                    toast.success('Successfully deleted');
-                    SetIsDelete(!isDelete)
-                }
-                console.log(data.data)
-            })
+        // console.log(queryId);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`${import.meta.env.VITE_API_URL}/deleteRecommendation/${id}`)
+                    .then(data => {
+                        if (data.data.deletedCount) {
+                            // toast.success('Successfully deleted');
+                            SetIsDelete(!isDelete)
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                        // console.log(data.data)
+                    })
+                
+            }
+        });
+        // axios.delete(`${import.meta.env.VITE_API_URL}/deleteRecommendation/${id}`)
+        //     .then(data => {
+        //         if (data.data.deletedCount) {
+        //             toast.success('Successfully deleted');
+        //             SetIsDelete(!isDelete)
+        //         }
+        //         console.log(data.data)
+        //     })
         axios.patch(`${import.meta.env.VITE_API_URL}/recommendation-decrease/${queryId}`)
             .then(data => console.log(data.data))
     }
@@ -54,36 +81,36 @@ const MyRecommendations = () => {
                 </Helmet>
                 <h1 className="text-4xl text-center font-medium">My Recommendations</h1>
                 {
-                    loading === false ? 
-                    <div className="overflow-x-auto">
-                    <table className="table">
-                        
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th className="text-lg">Product Name</th>
-                                <th className="text-lg">Recommendation Reason</th>
-                                <th className="text-lg">Remove</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            {
-                                myRecommendation?.map((item, idx) =>
-                                    <tr key={item._id}>
-                                        <th>{idx + 1}</th>
-                                        <td>{item.RecommendationProductName}</td>
-                                        <td title={item.RecommendationReason}>{item.RecommendationReason.slice(0, 50)}...</td>
-                                        <td ><button className="text-xl " title="Remove" onClick={() => handleDelete(item._id, item.queryId)}><MdDeleteOutline /></button></td>
-                                    </tr>
-                                )
-                            }
+                    loading === false ?
+                        <div className="overflow-x-auto">
+                            <table className="table">
 
-                        </tbody>
-                    </table>
-                </div>
-                :
-                <div className="flex justify-center items-center "><SyncLoader color="#36d7b7" /></div>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th className="text-lg">Product Name</th>
+                                        <th className="text-lg">Recommendation Reason</th>
+                                        <th className="text-lg">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {
+                                        myRecommendation?.map((item, idx) =>
+                                            <tr key={item._id}>
+                                                <th>{idx + 1}</th>
+                                                <td>{item.RecommendationProductName}</td>
+                                                <td title={item.RecommendationReason}>{item.RecommendationReason.slice(0, 50)}...</td>
+                                                <td ><button className="text-xl " title="Remove" onClick={() => handleDelete(item._id, item.queryId)}><MdDeleteOutline /></button></td>
+                                            </tr>
+                                        )
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        :
+                        <div className="flex justify-center items-center "><SyncLoader color="#36d7b7" /></div>
                 }
             </div>
         </>
