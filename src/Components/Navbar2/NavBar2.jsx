@@ -61,29 +61,30 @@ const NavBar2 = () => {
       user &&
       <>
 
-        {/* <NavLink className={({ isActive }) =>
-                  isActive ? "  font-medium border-b-2 border-primary-color text-primary-color p-2" : " font-medium  p-2 rounded-lg hover:text-primary-color"
-              } to='/addSpot'>Add Spot</NavLink> */}
-        {/* <NavLink className={({ isActive }) =>
-                  isActive ? "  font-medium border-b-2 border-primary-color text-primary-color p-2" : "font-medium  p-2 rounded-lg hover:text-primary-color"
-              } to='/updateProfile'>Update Profile</NavLink> */}
+        <NavLink className={({ isActive }) =>
+          isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
+        } to='/my-query'>My Queries</NavLink>
 
       </>
     }
-    <NavLink className={({ isActive }) =>
-      isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
-    } to='/my-query'>My Queries</NavLink>
+
     <NavLink className={({ isActive }) =>
       isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
     } to={`/queries`}>Queries</NavLink>
-    <NavLink className={({ isActive }) =>
-      isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
-    } to='/myRecommendations'>My Recommendations</NavLink>
-    
-    <NavLink className={({ isActive }) =>
-      isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
-    } to='/recommendations-for-me'>Recommendations For Me</NavLink>
-   
+    {
+      user &&
+      <NavLink className={({ isActive }) =>
+        isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
+      } to='/myRecommendations'>My Recommendations</NavLink>
+    }
+
+    {
+      user &&
+      <NavLink className={({ isActive }) =>
+        isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
+      } to='/recommendations-for-me'>Recommendations For Me</NavLink>
+    }
+
   </>
 
   useEffect(() => {
@@ -91,7 +92,7 @@ const NavBar2 = () => {
       const position = window.scrollY;
       setScrollPosition(position);
 
-      
+
       // position > window.innerHeight
       if (position > 10) {
         setNavbarBackground('bg-white');

@@ -20,6 +20,7 @@ const MyQuery = () => {
 
     const { user, loading } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
+    const [gridLayout, setGridLayout] = useState('grid-cols-1');
 
 
 
@@ -75,9 +76,14 @@ const MyQuery = () => {
 
             <div className="container mx-auto mt-16 space-y-10">
                 <h1 className="text-5xl font-medium text-center">My Queries</h1>
+                <div className="flex gap-5 justify-center mb-10 pt-10">
+                    <button onClick={() => setGridLayout('grid-cols-1')} className="btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">1 Column Layout</button>
+                    <button onClick={() => setGridLayout('grid-cols-2')} className="lg:block md:block hidden btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">2 Column Layout</button>
+                    <button onClick={() => setGridLayout('grid-cols-3')} className="hidden lg:block btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">3 Column Layout</button>
+                </div>
                 <div>
                     {
-                        myQuery.length > 0 ? <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
+                        myQuery.length > 0 ? <div className={`grid gap-5 ${gridLayout}`}>
                             {
                                 myQuery?.map(item => <QueryCard key={item._id} queryData={item} isdeleted={isdeleted} setIsDeleted={setIsDeleted}></QueryCard>)
                             }

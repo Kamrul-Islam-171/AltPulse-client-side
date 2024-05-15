@@ -1,6 +1,6 @@
 import { IoLocationOutline } from "react-icons/io5";
 import { FiPhone } from "react-icons/fi";
-import { FaGithub, FaInstagram, FaPrint, FaSkype, FaTwitter } from "react-icons/fa6";
+import { FaGithub, FaInstagram, FaLinkedin, FaPrint, FaSkype, FaTwitter } from "react-icons/fa6";
 import { MdMailOutline } from "react-icons/md";
 
 import { FaFacebook } from "react-icons/fa";
@@ -18,8 +18,10 @@ const Footer = () => {
             <div className="container mx-auto pb-3 ">
                 <div className='text-white pt-20 text-center lg:text-start  grid gap-5 lg:grid-cols-4 md:grid-cols-2 '>
                     <div className="">
-                        {/* <img src={home} className='mx-auto  w-[70px] h-[70px] bg-white rounded-full' alt="" /> */}
-                        <h1 className='text-gray-100 text-2xl font-bold'>Alt<span className="text-primary-color">Pulse</span></h1>
+                        <div className="flex items-center gap-2">
+                            <img src={'https://i.ibb.co/2FFGJgC/altpulse-removebg-preview.png'} className=' w-[30px] h-[30px] ' alt="" />
+                            <h1 className='text-gray-100 text-2xl font-bold'>Alt<span className="text-primary-color">Pulse</span></h1>
+                        </div>
                         <p className='text-gray-400 '>Where users recommend and discover alternative products effortlessly. Join our vibrant community to share recommendations and find queries for unique finds.</p>
                     </div>
                     <div className="lg:ml-10">
@@ -75,6 +77,7 @@ const Footer = () => {
                         <span><FaInstagram /></span>
                         <span><FaTwitter /></span>
                         <span><FaSkype /></span>
+                        <span><FaLinkedin /></span>
                     </div>
                 </div>
                 <hr className="w-full mt-3" />
