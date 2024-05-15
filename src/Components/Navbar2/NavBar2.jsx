@@ -54,7 +54,7 @@ const NavBar2 = () => {
 
   const navlinks = <>
     <NavLink className={({ isActive }) =>
-      isActive ? "text-lg  font-medium border-b-2 border-primary-color text-primary-color p-2" : "   text-lg font-medium  p-2 rounded-lg hover:text-primary-color"
+      isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
     } to='/'>Home</NavLink>
 
     {
@@ -71,17 +71,17 @@ const NavBar2 = () => {
       </>
     }
     <NavLink className={({ isActive }) =>
-      isActive ? "text-lg font-medium border-b-2 border-primary-color text-primary-color p-2" : "   text-lg font-medium  p-2 rounded-lg hover:text-primary-color"
+      isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
     } to='/my-query'>My Queries</NavLink>
     <NavLink className={({ isActive }) =>
-      isActive ? "text-lg  font-medium border-b-2 border-primary-color text-primary-color p-2" : "  text-lg font-medium  p-2 rounded-lg hover:text-primary-color"
+      isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
     } to={`/queries`}>Queries</NavLink>
     <NavLink className={({ isActive }) =>
-      isActive ? "text-lg  font-medium border-b-2 border-primary-color text-primary-color p-2" : "   text-lg font-medium  p-2 rounded-lg hover:text-primary-color"
+      isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
     } to='/myRecommendations'>My Recommendations</NavLink>
     
     <NavLink className={({ isActive }) =>
-      isActive ? "text-lg  font-medium border-b-2 border-primary-color text-primary-color p-2" : "  text-lg font-medium  p-2 rounded-lg hover:text-primary-color"
+      isActive ? `text-lg font-medium border-b-2 border-primary-color text-primary-color p-2` : `   text-lg font-medium  p-2 rounded-lg hover:text-primary-color text-black lg:${textColor}`
     } to='/recommendations-for-me'>Recommendations For Me</NavLink>
    
   </>
