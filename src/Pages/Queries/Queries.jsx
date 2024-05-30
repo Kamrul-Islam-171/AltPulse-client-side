@@ -8,42 +8,67 @@ import { SyncLoader } from "react-spinners";
 const Queries = () => {
 
     const [allQuery, setAllQuery] = useState([]);
+    const [selectedOption, setSelectedOption] = useState(null);
+
     const [gridLayout, setGridLayout] = useState('grid-cols-1');
     // const [inputValue, setInputValue] = useState('');
-    const [isSearched, setIsSearched] = useState(false);
-    const [loading, setLoading] = useState(true)
+    // const [isSearched, setIsSearched] = useState(false);
+    const [search, setSearch] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [asc, setAsc] = useState(true);
     const inputValue = useRef('');
+    const [min, setMin] = useState(0);
+    const [max, setMax] = useState(100);
+
+
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/queries`)
+        axios.get(`${import.meta.env.VITE_API_URL}/queries?sort=${asc ? 'asc' : 'dsc'}&min=${min}&max=${max}&search=${search}`)
             .then(data => {
                 setAllQuery(data.data);
                 setLoading(false);
             });
-    }, [])
+    }, [asc, min, max, search])
 
     const getData = () => {
 
     }
 
-    const handleSerach = () => {
-        // setLoading(true);
-        // console.log(inputValue.current.value)
-        // setIsSearched(!isSearched)
-
-        axios.get(`${import.meta.env.VITE_API_URL}/queries`)
-            .then(data => {
-                // setAllQuery(data.data)
-                const searchResult = data.data.filter(item => item.ProductName.toLowerCase().includes(inputValue.current.value.toLowerCase()));
-                // console.log(searchResult)
-                setAllQuery(searchResult);
-
-            });
-
-        // const searchResult = allQuery.filter(item => item.ProductName.toLowerCase().includes(inputValue.current.value.toLowerCase()));
-
-        // setAllQuery(searchResult);
+    const handleChekced = (e, x, y, index) => {
+        console.log(e.target.checked);
+        console.log(x, y);
+        setSelectedOption(index)
+        if (e.target.checked) {
+            setMin(x);
+            setMax(y);
+        }
+        else {
+            setMin(0);
+            setMax(100);
+        }
     }
+
+    // console.log('min = ', min);
+    // console.log('max= ', max);
+
+
+
+    const handleSerach = () => {
+        
+
+        // axios.get(`${import.meta.env.VITE_API_URL}/queries`)
+        //     .then(data => {
+                
+        //         const searchResult = data.data.filter(item => item.ProductName.toLowerCase().includes(inputValue.current.value.toLowerCase()));
+                
+        //         setAllQuery(searchResult);
+
+        //     });
+        setSearch(inputValue.current.value)
+
+        
+    }
+    // console.log(isSearched)
 
     if (loading) {
         return <div className="flex justify-center items-center h-screen"><SyncLoader color="#36d7b7" /></div>
@@ -72,6 +97,22 @@ const Queries = () => {
                     <button onClick={() => setGridLayout('grid-cols-1')} className="btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">1 Column Layout</button>
                     <button onClick={() => setGridLayout('grid-cols-2')} className="lg:block md:block hidden btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">2 Column Layout</button>
                     <button onClick={() => setGridLayout('grid-cols-3')} className="hidden lg:block btn mt-2 bg-white text-primary-color hover:bg-primary-color hover:text-white border border-primary-color px-5">3 Column Layout</button>
+                </div>
+
+
+
+                {/* new features */}
+                <div className="flex justify-center my-10">
+                    <button onClick={() => setAsc(!asc)} className="btn bg-red-500 text-white text-lg px-10">{asc ? 'High to Low Recommendation' : 'Low to High Recommendation'}</button>
+                </div>
+
+                <div className="my-5 flex justify-center gap-2 flex-col lg:ml-[40%] ml-[20%] md:ml-[30%]">
+                    <div className="">
+                        <input checked={selectedOption === 1} onChange={(e) => handleChekced(e, 0, 1, 1)} className="" type="checkbox" name="lessThan2" id="" /> Less than 2 Recommendation
+                    </div>
+                    <div>
+                        <input checked={selectedOption === 2} onChange={(e) => handleChekced(e, 2, 5, 2)} type="checkbox" name="greaterThan3" id="" /> 2-5 Recommendation
+                    </div>
                 </div>
 
                 {/* <div className="mb-10">
