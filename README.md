@@ -37,4 +37,11 @@ Live link : (https://66449dbbfe8af7089a452398--tourmaline-seahorse-94b672.netlif
 - [React Icons](https://react-icons.github.io/react-icons/):Include popular icons in your React projects easily with react-icons, which utilizes ES6 imports that allows you to include only the icons that your project is using.
 
 
+## To run a React project locally :
+1. **Clone the Repository:** Open your terminal and run the following command to clone the repository: "git clone https://github.com/username/repository.git" Replace https://github.com/username/repository.git with the actual URL of the repository.
+2. **Install Dependencies:** Before you can run the project, you need to install the necessary dependencies. Make sure you have Node.js and npm (Node Package Manager) installed. Run the following command: npm install .This command will install all the dependencies listed in the package.json file.
+3. **Start the Development Server:**
+After the dependencies are installed, you can start the development server by running:
+"npm run dev". This command will start the React development server.
+
 
